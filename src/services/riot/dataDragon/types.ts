@@ -1,4 +1,4 @@
-import { Champion, FullChampion } from './getChampion/types'
+import { FullChampion } from './getChampion/types'
 import { Champions } from './getChampions/types'
 
 export type DataDragonLanguage =

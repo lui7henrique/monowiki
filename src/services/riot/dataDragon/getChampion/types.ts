@@ -49,7 +49,7 @@ export type Spell = {
   datavalues: Datavalues
   effect: Array<number[] | null>
   effectBurn: Array<null | string>
-  vars: any[]
+  vars: unknown[]
   costType: string
   maxammo: string
   range: number[]
@@ -75,7 +75,7 @@ export type FullChampion = {
   stats: { [key: string]: number }
   spells: Spell[]
   passive: Passive
-  recommended: any[]
+  recommended: unknown[]
 }
 
 export type Data = {

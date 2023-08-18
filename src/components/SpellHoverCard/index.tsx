@@ -1,6 +1,5 @@
 import { dataDragonURL } from 'src/services/riot/dataDragon'
 import { Spell } from 'src/services/riot/dataDragon/getChampion/types'
-import Tooltip from '../Tooltip'
 import Image from 'next/image'
 import {
   BlendingModeIcon,
