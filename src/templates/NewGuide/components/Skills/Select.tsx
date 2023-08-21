@@ -1,6 +1,6 @@
 import { useFieldArray, useFormContext } from 'react-hook-form'
 import { useQuery } from 'react-query'
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 
 import { Champion } from 'src/services/riot/dataDragon/getChampions/types'
 import { dataDragonClient } from 'src/services/riot/dataDragon'
@@ -12,6 +12,7 @@ import { SpellHoverCard } from 'src/components/SpellHoverCard'
 import { NewGuideFormType } from '../../types'
 import { keyOfSpellByIndex } from 'src/utils/spell/keyOfSpellByIndex'
 import { PassiveHoverCard } from 'src/components/PassiveHoverCard'
+import { Spell } from 'src/services/riot/dataDragon/getChampion/types'
 
 export const SelectSkills = () => {
   const { watch, control } = useFormContext<NewGuideFormType>()
@@ -39,13 +40,35 @@ export const SelectSkills = () => {
     )
   }, [append])
 
+  const verifyIfSpellIsChecked = useCallback(
+    (level: number, spell: Spell) => {
+      const isChecked = fields[level]?.spellId === spell.id
+      return isChecked
+    },
+    [fields],
+  )
+
+  const handleCheckSpell = useCallback(
+    (level: number, spell: Spell) => {
+      const isChecked = verifyIfSpellIsChecked(level, spell)
+
+      if (isChecked) {
+        return update(level, { level, spellId: undefined })
+      }
+
+      const canUpdate =
+        fields.filter((field) => field.spellId === spell.id).length <
+        spell.maxrank
+
+      if (canUpdate) {
+        update(level, { level, spellId: spell.id })
+      }
+    },
+    [fields, update, verifyIfSpellIsChecked],
+  )
+
   if (isLoading || !data) {
-    return (
-      <section className="">
-        <h3>Habilidades</h3>
-        <Skeleton />
-      </section>
-    )
+    return <Skeleton />
   }
 
   return (
@@ -82,25 +105,13 @@ export const SelectSkills = () => {
                   )
                 }
 
-                const checked = fields[level]?.spellId === spell.id
+                const checked = verifyIfSpellIsChecked(level, spell)
 
                 return (
                   <SpellButton
                     checked={checked}
                     key={level}
-                    onClick={() => {
-                      if (checked) {
-                        return update(level, { level, spellId: undefined })
-                      }
-
-                      const canUpdate =
-                        fields.filter((field) => field.spellId === spell.id)
-                          .length < spell.maxrank
-
-                      if (canUpdate) {
-                        update(level, { level, spellId: spell.id })
-                      }
-                    }}
+                    onClick={() => handleCheckSpell(level, spell)}
                   >
                     {checked && level}
                   </SpellButton>

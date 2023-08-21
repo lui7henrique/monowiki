@@ -29,7 +29,7 @@ export const PassiveHoverCard = ({
         <div className="flex flex-col">
           <video
             src={video}
-            className="aspect-video w-full object-fill"
+            className="aspect-video w-full object-cover"
             autoPlay
           />
 
@@ -46,7 +46,7 @@ export const PassiveHoverCard = ({
         </div>
       }
     >
-      <div className="w-full h-full aspect-square overflow-hidden rounded-md relative">
+      <div className="w-full h-full aspect-square overflow-hidden rounded-md relative ">
         <Image
           src={src}
           alt={passive.name}
