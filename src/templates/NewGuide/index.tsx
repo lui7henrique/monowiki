@@ -13,8 +13,6 @@ export const NewGuideTemplate = (props: NewGuideProps) => {
 
   const methods = useForm<NewGuideFormType>()
 
-  console.log(methods.watch('skills'))
-
   return (
     <FormProvider {...methods}>
       <form className="max-w-app mx-auto py-8 ">

@@ -1,13 +1,11 @@
 import { useFormContext } from 'react-hook-form'
 import Image from 'next/image'
-import { Pencil1Icon } from '@radix-ui/react-icons'
 
-import Tooltip from 'src/components/Tooltip'
-import { IconButton } from 'src/components/IconButton'
 import { getSplashArtByChampionKey } from 'src/utils/splash-art'
 
 import { NewGuideFormType } from '../../types'
 import { parseChampion } from 'src/utils/champion/parseChampion'
+import { SelectSkinDialog } from './SelectSkinModal'
 
 export const Banner = () => {
   const { watch } = useFormContext<NewGuideFormType>()
@@ -22,7 +20,14 @@ export const Banner = () => {
   }
 
   const currentChampion = parseChampion(currentChampionValue)
-  const banner = getSplashArtByChampionKey(currentChampion.key)
+
+  const skinId = watch('bannerSkinId')
+  const isMatchSkinChampion = skinId.startsWith(currentChampion.key)
+
+  const banner = getSplashArtByChampionKey(
+    currentChampion.key,
+    isMatchSkinChampion ? skinId : undefined,
+  )
 
   return (
     <div className="w-full h-[500px] relative">
@@ -31,16 +36,7 @@ export const Banner = () => {
       </header>
 
       <div className="absolute right-4 top-4 z-50">
-        <Tooltip content="Alterar skin">
-          <div>
-            <IconButton
-              onClick={() => console.log('alterar skin')}
-              type="button"
-            >
-              <Pencil1Icon />
-            </IconButton>
-          </div>
-        </Tooltip>
+        <SelectSkinDialog />
       </div>
     </div>
   )
