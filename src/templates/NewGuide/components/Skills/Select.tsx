@@ -2,17 +2,19 @@ import { useFieldArray, useFormContext } from 'react-hook-form'
 import { useQuery } from 'react-query'
 import { useCallback, useEffect } from 'react'
 
-import { Champion } from 'src/services/riot/dataDragon/getChampions/types'
 import { dataDragonClient } from 'src/services/riot/dataDragon'
 
 import { Skeleton } from './Skeleton'
+
 import { SpellButton } from 'src/components/SpellButton'
 import { SpellHoverCard } from 'src/components/SpellHoverCard'
-
-import { NewGuideFormType } from '../../types'
 import { keyOfSpellByIndex } from 'src/utils/spell/keyOfSpellByIndex'
 import { PassiveHoverCard } from 'src/components/PassiveHoverCard'
 import { Spell } from 'src/services/riot/dataDragon/getChampion/types'
+
+import { NewGuideFormType } from '../../types'
+import { parseChampion } from 'src/utils/champion/parseChampion'
+import { HeaderSkills } from './Header'
 
 export const SelectSkills = () => {
   const { watch, control } = useFormContext<NewGuideFormType>()
@@ -22,8 +24,7 @@ export const SelectSkills = () => {
     name: 'skills',
   })
 
-  const currentChampionValue = watch('champion')
-  const currentChampion: Champion = JSON.parse(currentChampionValue)
+  const currentChampion = parseChampion(watch('champion'))
   const { id, partype, key } = currentChampion
 
   const { data, isLoading } = useQuery(
@@ -73,7 +74,7 @@ export const SelectSkills = () => {
 
   return (
     <section>
-      <h4 className="text-lg font-bold">Habilidades</h4>
+      <HeaderSkills />
 
       <div className="mt-4 flex flex-col gap-1">
         <div className="grid grid-cols-19 gap-1 w-full">
@@ -84,7 +85,7 @@ export const SelectSkills = () => {
             keyboardKey="P"
           />
 
-          <div className="col-[_span_18] w-full border border-zinc-800 rounded-md bg-zinc-900 flex items-center justify-center uppercase font-bold text-zinc-600 text-sm select-none">
+          <div className="col-[_span_18] w-full border border-zinc-800 rounded-default bg-zinc-900 flex items-center justify-center uppercase font-bold text-zinc-600 text-sm select-none">
             Passiva
           </div>
         </div>

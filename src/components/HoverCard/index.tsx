@@ -17,7 +17,7 @@ export const HoverCard = (props: HoverCardProps) => {
 
       <PrimitiveHoverCard.Portal>
         <PrimitiveHoverCard.Content
-          className="data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[400px] rounded-md bg-zinc-900 p-0 text-zinc-400 data-[state=open]:transition-all overflow-hidden"
+          className="data-[side=bottom]:animate-slideUpAndFade data-[side=right]:animate-slideLeftAndFade data-[side=left]:animate-slideRightAndFade data-[side=top]:animate-slideDownAndFade w-[400px] rounded-default bg-zinc-900 p-0 text-zinc-400 data-[state=open]:transition-all overflow-hidden"
           sideOffset={5}
         >
           {content}

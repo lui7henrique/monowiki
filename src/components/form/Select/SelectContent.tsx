@@ -21,7 +21,7 @@ export const SelectContent = (props: SelectContentProps) => {
 
   return (
     <SelectPrimitive.Portal>
-      <SelectPrimitive.Content className="overflow-hidden bg-zinc-900 rounded-md">
+      <SelectPrimitive.Content className="overflow-hidden bg-zinc-900 rounded-default">
         <SelectPrimitive.ScrollUpButton className="flex items-center justify-center h-[25px] bg-zic-900 text-zinc-500 cursor-default">
           <ChevronUpIcon />
         </SelectPrimitive.ScrollUpButton>

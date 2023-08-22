@@ -46,7 +46,7 @@ export const PassiveHoverCard = ({
         </div>
       }
     >
-      <div className="w-full h-full aspect-square overflow-hidden rounded-md relative ">
+      <div className="w-full h-full aspect-square overflow-hidden rounded-default relative ">
         <Image
           src={src}
           alt={passive.name}

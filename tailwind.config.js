@@ -13,6 +13,10 @@ module.exports = {
         article: '1080px',
       },
 
+      borderRadius: {
+        default: '4px',
+      },
+
       gridTemplateColumns: {
         19: 'repeat(19, 1fr)',
       },

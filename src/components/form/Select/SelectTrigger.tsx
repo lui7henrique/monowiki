@@ -3,7 +3,7 @@ import * as SelectPrimitive from '@radix-ui/react-select'
 import { tv } from 'tailwind-variants'
 
 const selectTrigger = tv({
-  base: 'inline-flex items-center justify-center rounded px-[15px] text-[16px] leading-none gap-[5px] bg-zinc-900 text-zinc-200  hover:bg-zinc-800  data-[placeholder]:text-zinc-500 outline-none border-none transition-all',
+  base: 'inline-flex items-center justify-center rounded-default px-[15px] text-[16px] leading-none gap-[5px] bg-zinc-900 text-zinc-200  hover:bg-zinc-800  data-[placeholder]:text-zinc-500 outline-none border-none transition-all',
   variants: {
     format: {
       rectangle: 'h-[48px]',

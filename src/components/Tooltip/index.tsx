@@ -3,7 +3,7 @@ import * as TooltipPrimitive from '@radix-ui/react-tooltip'
 import { tv } from 'tailwind-variants'
 
 const tooltipContent = tv({
-  base: 'data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade text-zinc-400 select-none rounded-md bg-zinc-900 text-sm leading-none will-change-[transform,opacity] max-w-[480px]',
+  base: 'data-[state=delayed-open]:data-[side=top]:animate-slideDownAndFade data-[state=delayed-open]:data-[side=right]:animate-slideLeftAndFade data-[state=delayed-open]:data-[side=left]:animate-slideRightAndFade data-[state=delayed-open]:data-[side=bottom]:animate-slideUpAndFade text-zinc-400 select-none rounded-default bg-zinc-900 text-sm leading-none will-change-[transform,opacity] max-w-[480px]',
   variants: {
     padding: {
       true: 'px-3 py-2',

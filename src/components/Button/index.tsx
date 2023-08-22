@@ -4,7 +4,7 @@ import { StageSpinner } from 'react-spinners-kit'
 import { tv } from 'tailwind-variants'
 
 const button = tv({
-  base: 'bg-indigo-600 text-zinc-200 rounded-md hover:bg-indigo-700 transition-all text-[16px] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2',
+  base: 'bg-indigo-600 text-zinc-200 rounded-default hover:bg-indigo-700 transition-all text-[16px] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2',
   variants: {
     format: {
       rectangle: 'h-[40px] px-4 py-2',

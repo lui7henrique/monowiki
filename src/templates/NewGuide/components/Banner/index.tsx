@@ -4,29 +4,29 @@ import { Pencil1Icon } from '@radix-ui/react-icons'
 
 import Tooltip from 'src/components/Tooltip'
 import { IconButton } from 'src/components/IconButton'
-import { Champion } from 'src/services/riot/dataDragon/getChampions/types'
 import { getSplashArtByChampionKey } from 'src/utils/splash-art'
 
 import { NewGuideFormType } from '../../types'
+import { parseChampion } from 'src/utils/champion/parseChampion'
 
 export const Banner = () => {
   const { watch } = useFormContext<NewGuideFormType>()
-  const currenChampionValue = watch('champion')
+  const currentChampionValue = watch('champion')
 
-  if (!currenChampionValue) {
+  if (!currentChampionValue) {
     return (
       <div className="w-full h-[500px] relative">
-        <header className="w-full h-full bg-zinc-950 border border-zinc-900 rounded-md relative overflow-hidden -z-20" />
+        <header className="w-full h-full bg-zinc-950 border border-zinc-900 rounded-default relative overflow-hidden -z-20" />
       </div>
     )
   }
 
-  const currentChampion: Champion = JSON.parse(currenChampionValue)
+  const currentChampion = parseChampion(currentChampionValue)
   const banner = getSplashArtByChampionKey(currentChampion.key)
 
   return (
     <div className="w-full h-[500px] relative">
-      <header className="w-full h-full bg-zinc-950 border border-zinc-900 rounded-md relative overflow-hidden -z-20">
+      <header className="w-full h-full bg-zinc-950 border border-zinc-900 rounded-default relative overflow-hidden -z-20">
         <Image src={banner} alt="Banner" fill className="object-cover" />
       </header>
 

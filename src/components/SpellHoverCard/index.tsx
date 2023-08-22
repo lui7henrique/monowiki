@@ -54,7 +54,7 @@ export const SpellHoverCard = ({
               {leveltip.label.map((label) => {
                 return (
                   <div
-                    className="bg-indigo-600 text-zinc-100 py-1 px-2 rounded-sm whitespace-nowrap"
+                    className="bg-indigo-600 text-zinc-100 py-1 px-2 rounded-default whitespace-nowrap"
                     key={label}
                   >
                     {label.replace('@AbilityResourceName@', partype)}
@@ -90,13 +90,7 @@ export const SpellHoverCard = ({
         </div>
       }
     >
-      <div
-        style={{
-          position: 'relative',
-          overflow: 'hidden',
-          borderRadius: '6px',
-        }}
-      >
+      <div className="relative overflow-hidden rounded-default">
         <Image src={src} alt={spell.name} fill style={{ objectFit: 'cover' }} />
       </div>
     </HoverCard>

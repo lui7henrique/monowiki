@@ -12,7 +12,7 @@ export const SelectItem = React.forwardRef<
   return (
     <SelectPrimitive.Item
       className={classnames(
-        'text-[13px] leading-none text-zinc-500 rounded-[3px] flex items-center pr-[35px] pl-[25px] relative select-none data-[disabled]:text-zinc-600 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-zinc-800 data-[highlighted]:text-zinc-400 cursor-pointer',
+        'text-[13px] leading-none text-zinc-500 rounded-default flex items-center pr-[35px] pl-[25px] relative select-none data-[disabled]:text-zinc-600 data-[disabled]:pointer-events-none data-[highlighted]:outline-none data-[highlighted]:bg-zinc-800 data-[highlighted]:text-zinc-400 cursor-pointer',
         className,
       )}
       {...props}
