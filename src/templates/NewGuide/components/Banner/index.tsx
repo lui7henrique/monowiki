@@ -22,7 +22,7 @@ export const Banner = () => {
   const currentChampion = parseChampion(currentChampionValue)
 
   const skinId = watch('bannerSkinId')
-  const isMatchSkinChampion = skinId.startsWith(currentChampion.key)
+  const isMatchSkinChampion = skinId?.startsWith(currentChampion.key)
 
   const banner = getSplashArtByChampionKey(
     currentChampion.key,
